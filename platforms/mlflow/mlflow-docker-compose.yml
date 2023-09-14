@@ -1,0 +1,20 @@
+# Source: https://hub.docker.com/r/atcommons/mlflow-server
+version: '3'
+
+services:
+  mlflow:
+    build:
+      context: mlflow/
+      args:
+        MLFLOW_VERSION: ${MLFLOW_VERSION}
+    ports:
+      - "5000:5000"
+    environment:
+      BACKEND_STORE_URI: $BACKEND_STORE_URI}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      MLFLOW_S3_ENDPOINT_URL: ${MLFLOW_S3_ENDPOINT_URL}
+      ARTIFACTS: ${ARTIFACTS}
+      # AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+    volumes:
+      - ./run_env/data:/mlflow

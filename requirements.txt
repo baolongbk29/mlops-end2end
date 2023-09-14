@@ -1,0 +1,7 @@
+numpy
+scikit-learn
+pandas
+mlflow
+psycopg2-binary
+psycopg2
+jupyter
